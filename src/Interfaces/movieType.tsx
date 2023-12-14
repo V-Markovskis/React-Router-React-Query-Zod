@@ -4,6 +4,7 @@ interface IMovie {
     movie: string;
     review: string;
     evaluation: string;
+    image: string;
 }
 
 

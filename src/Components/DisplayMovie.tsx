@@ -8,6 +8,15 @@ interface FormValues {
 const DisplayMovie = ({movieToDisplay, deleteMovie}: FormValues) => {
     return (
         <div>
+            <img
+                src={movieToDisplay.image}
+                alt="movie image"
+                width={200}
+                height={200}
+                style={{objectFit: "cover"}}
+            />
+            <br/>
+            <br/>
             <p>User: {movieToDisplay.nickname}</p>
             <p>Movie name: {movieToDisplay.movie}</p>
             <p>{movieToDisplay.review}</p>

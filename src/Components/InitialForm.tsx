@@ -1,6 +1,7 @@
 import '../App.css'
 import React, {useState} from "react";
 import IMovie from "../Interfaces/movieType.tsx";
+import validateImageUrl from "../functionsValidation/validateImageUrl.tsx";
 
 
 type InitialFormProps = {
@@ -30,13 +31,13 @@ const InitialForm = ({ initFormValue, currentId, createMovie, isLoading }: Initi
             <form className="form-container" onSubmit={(e) => {
                 e.preventDefault();
 
-                createMovie({...formValues, id: currentId + 1 });
+                createMovie({
+                    ...formValues,
+                    id: currentId + 1,
+                    image: validateImageUrl(formValues.image)
+                });
                 setFormValues(initFormValue);
 
-                // console.log('formValues', formValues)
-                // postMovie(formValues);
-                // setMovies([...movies, formValues])
-                // setFormValues(initFormValue)
             }}>
                 <h2 className='form-container_header'>Add new movie</h2>
                 <label htmlFor="nickname">Your Nickname:</label>
@@ -105,6 +106,24 @@ const InitialForm = ({ initFormValue, currentId, createMovie, isLoading }: Initi
                     min="1"
                     max="10"
                     className="review-main-details"
+                />
+                <label htmlFor="Image URL">Image URL:</label>
+                <input
+                    type="text"
+                    name="Image URL"
+                    value={formValues.image}
+                    onChange={(e) => {
+                        setFormValues({
+                            ...formValues,
+                            image: e.target.value
+                        })
+                    }}
+                    required
+                    placeholder="Enter image URL"
+                    className="review-main-details"
+                    width={200}
+                    height={200}
+                    style={{objectFit: "cover"}}
                 />
                 <div className='button-container'>
                     <button className="submit-button" disabled={isLoading}>Submit</button>

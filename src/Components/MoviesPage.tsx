@@ -12,7 +12,8 @@ const initFormValue = {
     nickname: '',
     movie: '',
     review: '',
-    evaluation: '1'
+    evaluation: '1',
+    image: ''
 }
 
 const MoviesPage = () => {
@@ -32,13 +33,21 @@ const MoviesPage = () => {
             // Invalidate and refetch
             queryClient.invalidateQueries({ queryKey: ['movies'] });
         },
+        onError: (error) => {
+            // An error happened!
+            console.error(`Error message: ${error}`)
+        },
     })
 
     const deleteMutation = useMutation({
         mutationFn: deleteMovie,
         onSuccess: () => {
             queryClient.invalidateQueries({queryKey: ['movies']})
-        }
+        },
+        onError: (error) => {
+            // An error happened!
+            console.error(`Error message: ${error}`)
+        },
     })
 
     console.log('data', data);
