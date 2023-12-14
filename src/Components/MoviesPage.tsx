@@ -22,9 +22,12 @@ const MoviesPage = () => {
 
     const queryClient = useQueryClient();
 
+    //https://stackoverflow.com/questions/70337333/react-query-refetch-on-window-focus-but-not-otherwise
     const { data, isLoading, isError, error} = useQuery({
         queryKey: ['movies'],
         queryFn: getMovies,
+        staleTime: Infinity,
+        refetchOnWindowFocus: false,
     })
 
     const postMutation = useMutation({
