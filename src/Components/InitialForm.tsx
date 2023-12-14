@@ -38,7 +38,7 @@ const InitialForm = ({ initFormValue, currentId, createMovie, isLoading }: Initi
                 // setMovies([...movies, formValues])
                 // setFormValues(initFormValue)
             }}>
-                <h2>Add new movie</h2>
+                <h2 className='form-container_header'>Add new movie</h2>
                 <label htmlFor="nickname">Your Nickname:</label>
                 <input
                     type="text"
@@ -50,6 +50,7 @@ const InitialForm = ({ initFormValue, currentId, createMovie, isLoading }: Initi
                             nickname: e.target.value
                         })
                     }}
+                    required
                     placeholder="Enter your nickname"
                     className="review-main-details"
                 />
@@ -65,6 +66,7 @@ const InitialForm = ({ initFormValue, currentId, createMovie, isLoading }: Initi
                             movie: e.target.value
                         })
                     }}
+                    required
                     placeholder="Movie to be discussed"
                     className="review-main-details"
                 />
@@ -81,6 +83,7 @@ const InitialForm = ({ initFormValue, currentId, createMovie, isLoading }: Initi
                             review: e.target.value
                         })
                     }}
+                    required
                     placeholder="Enter your thoughts"
                     className="review-main-details"
                     maxLength={200}
@@ -97,12 +100,15 @@ const InitialForm = ({ initFormValue, currentId, createMovie, isLoading }: Initi
                             evaluation: e.target.value
                         })
                     }}
+                    required
                     placeholder="Evaluation (1-10)"
                     min="1"
                     max="10"
                     className="review-main-details"
                 />
-                <button className="submit-button" disabled={isLoading}>Submit</button>
+                <div className='button-container'>
+                    <button className="submit-button" disabled={isLoading}>Submit</button>
+                </div>
             </form>
         </>
     )

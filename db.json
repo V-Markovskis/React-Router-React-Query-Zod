@@ -1,18 +1,3 @@
 {
-  "movies": [
-    {
-      "id": 2,
-      "nickname": "asdasd",
-      "movie": "asdasd",
-      "review": "asdas",
-      "evaluation": "6"
-    },
-    {
-      "id": 3,
-      "nickname": "asdasd",
-      "movie": "asd",
-      "review": "asdas",
-      "evaluation": "2"
-    }
-  ]
+  "movies": []
 }
