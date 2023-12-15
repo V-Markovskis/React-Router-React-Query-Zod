@@ -1,6 +1,6 @@
-import IMovie from "../Interfaces/movieType.tsx";
+import IMovie from "../Types/movieType.tsx";
 
-interface FormValues {
+type FormValues = {
     movieToDisplay: IMovie;
     deleteMovie: (movieId: number) => void
 }

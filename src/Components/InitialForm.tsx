@@ -1,6 +1,6 @@
 import '../App.css'
 import React, {useState} from "react";
-import IMovie from "../Interfaces/movieType.tsx";
+import IMovie from "../Types/movieType.tsx";
 import validateImageUrl from "../functionsValidation/validateImageUrl.tsx";
 
 
@@ -11,17 +11,7 @@ type InitialFormProps = {
     isLoading: boolean
 }
 
-// type InitialFormProps = {
-//     currentId: number,
-//     initFormValue: IMovie,
-//     formValues: IMovie,
-//     setFormValues: (movies: IMovie) => void,
-//     movies: IMovie[],
-//     setMovies: (movies: IMovie[]) => void
-// }
 
-
-// const InitialForm = ({currentId, formValues, initFormValue, setMovies, setFormValues, movies}: InitialFormProps) =>
 const InitialForm = ({ initFormValue, currentId, createMovie, isLoading }: InitialFormProps) => {
 
     const [formValues, setFormValues] = useState(initFormValue);

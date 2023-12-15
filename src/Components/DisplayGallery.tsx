@@ -1,4 +1,4 @@
-import IMovie from "../Interfaces/movieType.tsx";
+import IMovie from "../Types/movieType.tsx";
 import DisplayMovie from "./DisplayMovie.tsx";
 import React from "react";
 

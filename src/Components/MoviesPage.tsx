@@ -1,11 +1,10 @@
 import DisplayGallery from "./DisplayGallery.tsx";
 import InitialForm from "./InitialForm.tsx";
-import IMovie from "../Interfaces/movieType.tsx";
+import IMovie, {IMovieValidation} from "../Types/movieType.tsx";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import getMovies from "../DatabaseRequests/getMovies.tsx";
 import postMovie from "../DatabaseRequests/postMovie.tsx";
 import deleteMovie from "../DatabaseRequests/deleteMovie.tsx";
-
 
 const initFormValue = {
     id: -1,
@@ -80,7 +79,12 @@ const MoviesPage = () => {
                 initFormValue={initFormValue}
                 currentId={data.length}
                 createMovie={(movie: IMovie) => {
-                    postMutation.mutate(movie);
+                    try {
+                        IMovieValidation.parse(movie)
+                        postMutation.mutate(movie);
+                    } catch (error) {
+                        console.error('Zod validation error: ', error);
+                    }
                 }}
                 isLoading={isLoading}
             />
